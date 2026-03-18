@@ -3,7 +3,7 @@ from src.data.transaction_log import DepositLog, WithdrawLog
 
 
 class AccountService:
-    def __init__(self, account_repository):
+    def __init__(self, account_repository = ""):
         self.account_repository = account_repository
 
     def create_account(self, account_data):
