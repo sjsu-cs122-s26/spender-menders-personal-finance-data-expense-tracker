@@ -1,5 +1,8 @@
 import sqlite3
 
+from src.data.transaction_log import DepositLog, WithdrawLog
+
+
 class AccountRepo:
     def __init__(self):
         self.db_path = "accounts.db"
@@ -23,10 +26,20 @@ class AccountRepo:
         self.conn.commit()
 
     def get_all_logs(self, name: str):
+        # TODO: Implement actual database retrieval logic
         raw_data = [
-            (1, "2023-10-27 10:00:00", "deposit", 50000.0, "savings"),
-            (2, "2023-10-27 11:30:05", "withdraw", 12000.0, "checkings"),
-            (3, "2023-10-28 09:15:22", "deposit", 100000.0, "savings")
+            DepositLog("1", "2023-10-27 10:00:00", 50000.0, "savings"),
+            DepositLog("2", "2023-10-27 11:30:05", 12000.0, "checkings"),
+            WithdrawLog("3", "2023-10-28 09:15:22", 100000.0, "savings")
+        ]
+        return raw_data
+
+    def get_account_logs(self, name: str):
+        # TODO: Implement actual database retrieval logic
+        raw_data = [
+            DepositLog("1", "2023-10-27 10:00:00", 50000.0, "savings"),
+            DepositLog("2", "2023-10-27 11:30:05", 12000.0, "checkings"),
+            WithdrawLog("3", "2023-10-28 09:15:22", 100000.0, "savings")
         ]
         return raw_data
 
