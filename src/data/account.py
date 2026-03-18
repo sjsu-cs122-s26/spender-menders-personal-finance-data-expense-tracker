@@ -1,7 +1,8 @@
 # Individual accounts.
 # Savings account, checking account, Cash, etc.
 class Account:
-    def __init__(self, balance: float):
+    def __init__(self, name,balance: float):
+        self.name = name
         self.balance = balance
         self.log = []
 
