@@ -1,5 +1,5 @@
 # Book keeps all the accounts
-from src.service import Account
+from src.service.account import Account
 
 
 class Book:
@@ -14,3 +14,9 @@ class Book:
 
     def get_all_accounts(self):
         return self.accounts
+
+    def __str__(self):
+        result = "Book:\n"
+        for name, account in self.accounts.items():
+            result += f"  {name}: {account.get_balance()}\n"
+        return result
