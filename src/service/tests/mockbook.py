@@ -1,4 +1,4 @@
-from src.service.book import Book
+from src.data.book import Book
 from src.service.tests.mockaccount import MockAccount
 
 

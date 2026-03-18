@@ -1,4 +1,4 @@
-from src.service.account import Account
+from src.data.account import Account
 
 
 class MockAccount(Account):
