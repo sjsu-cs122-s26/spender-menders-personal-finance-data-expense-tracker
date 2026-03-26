@@ -157,3 +157,4 @@ class ExpenseTrackerApp:
             self.detail_var.set(f"Selected: {name}   —   Balance: ${float(balance):,.2f}")
         else:
             self.detail_var.set(f"Selected: {name}")
+        #testing commit
