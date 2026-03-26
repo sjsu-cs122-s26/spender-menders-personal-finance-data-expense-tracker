@@ -6,6 +6,16 @@ from src.service.account_service import AccountService
 
 
 class ExpenseTrackerApp:
+    """
+    Tkinter/ttk desktop UI for the expense tracker.
+
+    Responsibilities:
+    - Build and style the main window layout (header, actions, account list, status/details)
+    - Call the service layer to load account data
+    - React to user actions (button clicks and list selection) and update the UI
+    - More needs to be added 
+    """
+
     def __init__(self, root):
         self.root = root
         self.root.title("Expense Tracker")
@@ -13,16 +23,22 @@ class ExpenseTrackerApp:
         self.root.minsize(680, 460)
         self.root.configure(bg="#f3f4f6")
 
+        #backend wiring
         self.repo = AccountRepo()
         self.service = AccountService(self.repo)
+
+        #UI state shown to the user
         self.status_var = tk.StringVar(value="Click 'Load Accounts' to view accounts.")
         self.detail_var = tk.StringVar(value="Select an account in the list to see its balance.")
+
+        #cache the loaded Account objects so list selection can map row index -> account
         self._loaded_accounts = []
 
         self._configure_styles()
         self._build_layout()
 
     def _configure_styles(self):
+        #making the UI look consistent with centralized styling
         style = ttk.Style()
         style.theme_use("clam")
 
@@ -33,6 +49,13 @@ class ExpenseTrackerApp:
         style.configure("Status.TLabel", font=("Helvetica", 10), foreground="#1f2937")
 
     def _build_layout(self):
+        #here is layout overview:
+        # container
+        #   header (title + subtitle)
+        #   card
+        #     actions (Load Accounts)
+        #     list section (accounts list + scrollbar + detail line)
+        #     status line
         container = ttk.Frame(self.root, padding=24)
         container.pack(fill="both", expand=True)
 
@@ -71,9 +94,10 @@ class ExpenseTrackerApp:
         list_frame = ttk.Frame(list_section)
         list_frame.pack(fill="both", expand=True)
 
+        #setting explicit colors for background/text and selection highlight
         self.listbox = tk.Listbox(
             list_frame,
-            font=("Helvetica", 11),
+            font=("Arial", 11),
             borderwidth=0,
             highlightthickness=1,
             highlightcolor="#d1d5db",
@@ -85,6 +109,8 @@ class ExpenseTrackerApp:
             selectforeground="#ffffff",
         )
         self.listbox.pack(side="left", fill="both", expand=True)
+
+        #user clicks an account row, and it will update the detail label (updated to change)
         self.listbox.bind("<<ListboxSelect>>", self._on_account_select)
 
         scrollbar = ttk.Scrollbar(list_frame, orient="vertical", command=self.listbox.yview)
@@ -98,6 +124,8 @@ class ExpenseTrackerApp:
         status.pack(anchor="w", pady=(12, 0))
 
     def load_accounts(self):
+        # Handler for the "Load Accounts" button: asks the service for accounts,
+        # then populates the listbox with account names.
         self.listbox.delete(0, tk.END)
         self._loaded_accounts = []
         self.detail_var.set("Select an account in the list to see its balance.")
@@ -115,6 +143,7 @@ class ExpenseTrackerApp:
         self.status_var.set(f"Loaded {len(accounts)} account(s).")
 
     def _on_account_select(self, _event=None):
+        #loaded Account object and show basic info (name + balance).
         sel = self.listbox.curselection()
         if not sel:
             return
