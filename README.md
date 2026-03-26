@@ -20,8 +20,7 @@ This project is a personal finance **expense tracker** delivered as a **desktop 
 ## Tech stack
 
 - **Python 3**
-- **Tkinter
-- **PyQt5
+- **Tkinter, will switch to PyQt5**
 - **SQLite**
 
 
