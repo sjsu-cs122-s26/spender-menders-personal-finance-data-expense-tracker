@@ -2,7 +2,18 @@
 
 from sqlalchemy import Column, Integer, String, Float, Date, Text, ForeignKey
 from sqlalchemy.orm import relationship
-from database import Base
+from src.data.database import Base
+
+
+class Account(Base):
+    __tablename__ = "accounts"
+
+    account_id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String, nullable=False)
+    balance = Column(Float, default=0.0)
+
+    def __repr__(self):
+        return "<Account(name='%s', balance=%s)>" % (self.name, self.balance)
 
 
 class Category(Base):
