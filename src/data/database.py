@@ -1,36 +1,35 @@
-import sqlite3
+from contextlib import contextmanager
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, DeclarativeBase
+
+
+class Base(DeclarativeBase):
+    pass
 
 
 class DatabaseManager:
-    def __init__(self, db_path='database.db'):
-        self.db_path = db_path
-        self.conn = None
-        self.connect()
+    def __init__(self, db_url: str = 'sqlite:///database.db'):
+        self.engine = create_engine(db_url, echo=False)
+        self._Session = sessionmaker(bind=self.engine)
 
-    def connect(self):
+    def init_db(self):
+        Base.metadata.create_all(self.engine)
+
+    @contextmanager
+    def session_scope(self):
+        session = self._Session()
         try:
-            self.conn = sqlite3.connect(self.db_path)
-            self.conn.execute('PRAGMA foreign_keys = ON;')  # Enable foreign key support
-            print("Database connection established.")
-        except sqlite3.Error as e:
-            print(f"Database connection error: {e}")
-            self.conn = None
+            yield session
+            session.commit()
+        except Exception:
+            session.rollback()
+            raise
+        finally:
+            session.close()
 
-    def get_cursor(self):
-        if self.conn:
-            return self.conn.cursor()
-        else:
-            raise ConnectionError("Database connection is not established.")
-
-    def commit(self):
-        if self.conn:
-            self.conn.commit()
-        else:
-            raise ConnectionError("Database connection is not established.")
+    def get_session(self):
+        return self._Session()
 
     def close(self):
-        if self.conn:
-            self.conn.close()
-            print("Database connection closed.")
-        else:
-            print("No database connection to close.")
+        self.engine.dispose()
