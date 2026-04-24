@@ -32,8 +32,8 @@ class Category(Base):
 class Transaction(Base):
     __tablename__ = "transactions"
 
-    transactions_id = Column(Integer, primary_key=True)
-    expense_cat_id = Column(Integer, ForeignKey("categories.cat_id"), nullable=False)
+    transaction_id = Column(Integer, primary_key=True, autoincrement=True)
+    cat_id = Column(Integer, ForeignKey("categories.cat_id"), nullable=False)
     amount = Column(Float, nullable=False)
     date = Column(Date, nullable=False)
     description = Column(Text)
