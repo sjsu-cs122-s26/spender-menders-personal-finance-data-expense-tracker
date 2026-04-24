@@ -1,4 +1,4 @@
-from models import Category
+from src.data.models import Category
 
 
 class CategoryRepository:
