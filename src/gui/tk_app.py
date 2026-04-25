@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from src.data.repository import AccountRepo
+# from src.data.repository import AccountRepo
 from src.service.account_service import AccountService
 
 
@@ -24,8 +24,8 @@ class ExpenseTrackerApp:
         self.root.configure(bg="#f3f4f6")
 
         #backend wiring
-        self.repo = AccountRepo()
-        self.service = AccountService(self.repo)
+        # self.repo = AccountRepo()
+        self.service = AccountService()
 
         #UI state shown to the user
         self.status_var = tk.StringVar(value="Click 'Load Accounts' to view accounts.")
