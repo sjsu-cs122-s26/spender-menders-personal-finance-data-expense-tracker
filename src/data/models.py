@@ -12,6 +12,8 @@ class Account(Base):
     name = Column(String, nullable=False)
     balance = Column(Float, default=0.0)
 
+    transactions = relationship("Transaction", back_populates="account")
+
     def __repr__(self):
         return "<Account(name='%s', balance=%s)>" % (self.name, self.balance)
 
@@ -33,12 +35,14 @@ class Transaction(Base):
     __tablename__ = "transactions"
 
     transaction_id = Column(Integer, primary_key=True, autoincrement=True)
+    account_id = Column(Integer, ForeignKey("accounts.account_id"), nullable=False)
     cat_id = Column(Integer, ForeignKey("categories.cat_id"), nullable=False)
     amount = Column(Float, nullable=False)
     date = Column(Date, nullable=False)
     description = Column(Text)
 
     category = relationship("Category", back_populates="transactions")
+    account = relationship("Account", back_populates="transactions")
 
     def __repr__(self):
         return "<Transaction(amount=%s, date='%s')>" % (self.amount, self.date)
