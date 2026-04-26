@@ -25,6 +25,13 @@ class CategoryService:
         category = self.repo.get_by_id(category_id)
         return category.type if category else None
     
+    def get_signed_amount(self, cat_id, amount):
+        category = self.repo.get_by_id(cat_id)
+        if category.type == 'expense':
+            return -abs(amount)
+        else:
+            return abs(amount)
+    
     def update_category(self, category_id, name=None, type_=None):
         return self.repo.update(category_id, name=name, type=type_)
     

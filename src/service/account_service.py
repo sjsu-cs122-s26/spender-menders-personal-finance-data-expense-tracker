@@ -19,7 +19,7 @@ class AccountService:
     def get_all_accounts(self):
         return self.repo.get_all()
 
-    def get_account_balance(self, account_id):
+    def get_account_balance(self, account_id): # update to update balance based on transactions?
         account = self.repo.get_by_id(account_id)
         return account.balance if account else None
 
