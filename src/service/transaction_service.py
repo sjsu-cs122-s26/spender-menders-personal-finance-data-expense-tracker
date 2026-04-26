@@ -26,4 +26,9 @@ class TransactionService:
     
     def update_transaction(self, tx_id, amount=None, date=None, description=None, cat_id=None):
         return self.repo.update(tx_id, amount=amount, date=date, description=description, cat_id=cat_id)
+    
+    def delete_transaction(self, tx_id):
+        return self.repo.delete(tx_id)
+    
+  
                                 
