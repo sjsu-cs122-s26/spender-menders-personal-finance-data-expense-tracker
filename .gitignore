@@ -208,3 +208,6 @@ __marimo__/
 
 # Local SQLite databases (dev / runtime)
 *.db
+
+# csv files
+*.csv
