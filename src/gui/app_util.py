@@ -6,6 +6,9 @@ ACCOUNT_NAME: str = 'Test2'
 ACCOUNT_BAL:  int = 150
 ACCOUNT_ID:   int = 1
 
+T_COL: int = 6
+T_COL_NAME: list = ["ID", "DATE", "NAME", "DESCRIPTION", "AMOUNT", "TYPE"]
+
 # ------------------------------------------------------------------------------------------------ #
 #                                             GUI STYLE                                            #
 # ------------------------------------------------------------------------------------------------ #
@@ -26,7 +29,62 @@ QFRAME_STYLE: str = """
                               border: 1px solid #555;
                           }
                       """
+QTABLE_STYLE: str = """
+                          QTableWidget {
+                              background-color: #2b2b2b;
+                              gridline-color: #ccc;
+                              color: white;
+                          }
+                          QHeaderView::section {
+                            background-color: #2b2b2b;
+                            gridline-color: #ccc;
+                            color: white;
+                          }
+                          QTableCornerButton::section {
+                            background-color: #2b2b2b;
+                          }
+                          QScrollBar:vertical {
+                            background-color: #2b2b2b;
+                          }
+                          QScrollBar:horizontal {
+                            background-color: #2b2b2b;
+                          }
+                      """
+QBUTTON_STYLE: str = """
+                      QPushButton {
+                        background-color: #171717;
+                        color: white;
+                        border: 1px solid black;
+                      }
+                      QPushButton:hover {
+                        background-color: #b0b0b0;
+                        color: black;
+                      }
+                      """
+QCOMBO_STYLE: str = """
+                      QComboBox {
+                        background-color: #171717;
+                        color: white;
+                        border: 1px solid black;
+                      }
+                      """
 
-CREATE_BTTN: str = "Create"
-DELETE_BTTN: str = "Delete"
-UPDATE_BTTN: str = "Update"
+QDATE_STYLE: str = """
+                      QDateEdit {
+                        background-color: #171717;
+                        color: white;
+                        border: 1px solid black;
+                      }
+                      """
+
+QTEXTEDIT_STYLE: str = """
+                      QTextEdit {
+                        background-color: #171717;
+                        color: white;
+                        border: 1px solid black;
+                      }
+                      """
+
+CREATE_BTTN: str = "New Account"
+DELETE_BTTN: str = "Delete Account"
+UPDATE_BTTN: str = "Update Account"

@@ -5,8 +5,9 @@ class TransactionRepository:
     def __init__(self, session):
         self.session = session
 
-    def add(self, cat_id, amount, date, description=""):
+    def add(self, account_id, cat_id, amount, date, description=""):
         tx = Transaction(
+            account_id = account_id,
             cat_id=cat_id,
             amount=amount,
             date=date,
