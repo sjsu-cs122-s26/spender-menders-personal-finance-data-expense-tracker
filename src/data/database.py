@@ -19,6 +19,9 @@ class DatabaseManager:
 
     def init_db(self):
         Base.metadata.create_all(self.engine)
+        from src.data.seed import seed_categories # It's here to avoid circular imports
+        with self.session_scope() as session:
+            seed_categories(session)
 
     @contextmanager
     def session_scope(self):
