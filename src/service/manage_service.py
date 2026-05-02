@@ -18,6 +18,13 @@ class ManageService:
             df[(df["account_id"] == account_id) & (df["type"] == "expense")]["amount"].sum()
         )
 
+    def get_income_sum(self, account_id):
+        self._refresh()
+        df = self._merge_df
+        return float(
+            df[(df["account_id"] == account_id) & (df["type"] == "income")]["amount"].sum()
+        )
+
     def _refresh(self):
         cats = self.category_service.get_all_categories()
         accs = self.account_service.get_all_accounts()

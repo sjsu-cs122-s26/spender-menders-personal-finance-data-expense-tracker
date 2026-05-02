@@ -41,8 +41,7 @@ class Manage:
         return self.merge_df[(self.merge_df["account_id"] == id) & (self.merge_df["type"] == "income")]
 
     def get_income_sum(self, id):
-        income = self.get_income_by_type(id)
-        return income["amount"].sum()
+        return self.managing.get_income_sum(id)
 
     def get_balance_by_id(self, id):
         balance = (self.merge_df[self.merge_df["account_id"] == id]
