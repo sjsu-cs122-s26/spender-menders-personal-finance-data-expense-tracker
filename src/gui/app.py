@@ -551,7 +551,7 @@ class MainWindow(QtWidgets.QMainWindow):
     self.transactions_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
   def _create_acc(self):
-    self.acc_manage.service.create_account(self.name.text(), int(self.bal.text()))
+    self.acc_manage.service.create_account(self.name.text(), int(self.bal_text.text()))
     self.account_list = self.acc_manage.service.get_all_accounts()
     self.current_id = len(self.account_list)
     self.name.clear()
