@@ -1,7 +1,11 @@
 from contextlib import contextmanager
+from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
+
+_PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent  # Project root
+_DB_PATH = _PROJECT_ROOT / "database.db"
 
 
 class Base(DeclarativeBase):
@@ -9,7 +13,7 @@ class Base(DeclarativeBase):
 
 
 class DatabaseManager:
-    def __init__(self, db_url: str = 'sqlite:///database.db'):
+    def __init__(self, db_url: str = f"sqlite:///{_DB_PATH}"):
         self.engine = create_engine(db_url, echo=False)
         self._Session = sessionmaker(bind=self.engine)
 
