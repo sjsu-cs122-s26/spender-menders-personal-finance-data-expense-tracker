@@ -559,6 +559,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     self.list_widget.addItem(self.account_list[self.current_id - 1].name)
     self.del_widget.addItem(self.account_list[self.current_id - 1].name)
+    self.acc_combo.addItem(self.account_list[self.current_id - 1].name)
 
   def _update_form_ui(self):
     button = self.sender()
