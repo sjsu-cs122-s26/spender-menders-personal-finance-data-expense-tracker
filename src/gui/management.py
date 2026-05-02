@@ -44,11 +44,7 @@ class Manage:
         return self.managing.get_income_sum(id)
 
     def get_balance_by_id(self, id):
-        balance = (self.merge_df[self.merge_df["account_id"] == id]
-                   .groupby("type")["amount"]
-                   .sum()
-                   .pipe(lambda x: x.get("income", 0) - x.get("expense", 0)))
-        return balance
+        return self.managing.get_balance(id)
 
     def get_all_transactions(self, id):
         self._to_df()

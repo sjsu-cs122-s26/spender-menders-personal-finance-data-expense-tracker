@@ -25,6 +25,10 @@ class ManageService:
             df[(df["account_id"] == account_id) & (df["type"] == "income")]["amount"].sum()
         )
 
+    def get_balance(self, account_id):
+        balance = self.account_service.get_account_balance(account_id)
+        return float(balance) if balance is not None else 0.0
+
     def _refresh(self):
         cats = self.category_service.get_all_categories()
         accs = self.account_service.get_all_accounts()
