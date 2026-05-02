@@ -1,5 +1,7 @@
 import pandas as pd
 
+from src.data.df_utils import orm_to_df
+from src.data.models import Category, Account, Transaction
 from src.service.account_service import AccountService
 from src.service.category_service import CategoryService
 from src.service.transaction_service import TransactionService
@@ -13,13 +15,12 @@ class Manage:
     self._to_df()
 
   def _to_df(self):
-    self.cat_df = pd.DataFrame([vars(c) for c in self.category.get_all_categories()])
-    self.acc_df = pd.DataFrame([vars(a) for a in self.service.get_all_accounts()])
-    self.trans_df = pd.DataFrame([vars(t) for t in self.transaction.get_all_transactions()])
+      # TODO: separate layers
+      self.cat_df = orm_to_df(self.category.get_all_categories(), Category)
+      self.acc_df = orm_to_df(self.service.get_all_accounts(), Account)
+      self.trans_df = orm_to_df(self.transaction.get_all_transactions(), Transaction)
 
-    self.merge_df = self.trans_df.merge(self.cat_df, on="cat_id")
-    self.merge_df.drop(columns=['_sa_instance_state_x', '_sa_instance_state_y'], inplace=True)
-    # print(self.merge_df)
+      self.merge_df = self.trans_df.merge(self.cat_df, on="cat_id")
 
   def get_total_expense(self):
     return self.merge_df[self.merge_df["type"] == "expense"]
