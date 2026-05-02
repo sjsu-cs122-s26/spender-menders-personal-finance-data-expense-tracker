@@ -5,6 +5,7 @@ from src.data.models import Category, Account, Transaction
 from src.service.account_service import AccountService
 from src.service.category_service import CategoryService
 from src.service.transaction_service import TransactionService
+from src.service.manage_service import ManageService
 
 
 class Manage:
@@ -12,6 +13,7 @@ class Manage:
         self.service = AccountService()
         self.category = CategoryService()
         self.transaction = TransactionService()
+        self.managing = ManageService()
 
         self._to_df()
 
@@ -30,8 +32,7 @@ class Manage:
         return self.merge_df[(self.merge_df["account_id"] == id) & (self.merge_df["type"] == "expense")]
 
     def get_expense_sum(self, id):
-        expense = self.get_expense_by_type(id)
-        return expense["amount"].sum()
+        return self.managing.get_expense_sum(id)
 
     def get_total_income(self):
         return self.merge_df[self.merge_df["type"] == "income"]
