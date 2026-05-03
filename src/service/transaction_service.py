@@ -41,5 +41,8 @@ class TransactionService:
     def delete_transaction(self, tx_id):
         return self.repo.delete(tx_id)
     
+    def get_merged_transactions_with_categories(self):
+        return self.repo.get_merged_transactions_with_categories()
+    
     
                                 

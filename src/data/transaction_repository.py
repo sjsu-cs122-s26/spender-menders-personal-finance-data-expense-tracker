@@ -1,4 +1,5 @@
 from src.data.models import Transaction
+from src.data.models import Category
 
 
 class TransactionRepository:
@@ -56,3 +57,6 @@ class TransactionRepository:
         self.session.delete(tx)
         self.session.commit()
         return True
+    
+    def get_merged_transactions_with_categories(self):
+        return self.session.query(Transaction).join(Category, Category.cat_id == Transaction.cat_id).all()
