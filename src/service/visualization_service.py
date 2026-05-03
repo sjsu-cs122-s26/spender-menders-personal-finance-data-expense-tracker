@@ -55,7 +55,7 @@ class VisualizationService: # each query will be account specific
     @requires_account
     def get_unique_categories_for_expenses(self): # get unique categories for expenses(for iterating dropdown menu)
         df = self.filter_by_expense_type()
-        unique_categories = df['category_name'].unique()
+        unique_categories = df['name'].unique()
         return unique_categories
     
     @requires_account
@@ -67,7 +67,7 @@ class VisualizationService: # each query will be account specific
     @requires_account
     def get_summed_expenses_by_category(self): # get total expenses for each category(for pie chart)
         df = self.filter_by_expense_type()
-        summed_expenses = df.groupby('category_name')['amount'].sum().reset_index()
+        summed_expenses = df.groupby('name')['amount'].sum().reset_index()
         return summed_expenses
     
     @requires_account
@@ -91,7 +91,7 @@ class VisualizationService: # each query will be account specific
     @requires_account
     def get_summed_expenses_by_category_over_time(self): # get total expenses for each category over time(for bar chart)
         df = self.filter_by_expense_type()
-        summed_expenses_by_category_over_time = df.groupby('category_name')['amount'].sum().sort_values(ascending=False).reset_index()
+        summed_expenses_by_category_over_time = df.groupby('name')['amount'].sum().sort_values(ascending=False).reset_index()
         return summed_expenses_by_category_over_time
     
 
