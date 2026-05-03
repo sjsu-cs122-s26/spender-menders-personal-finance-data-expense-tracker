@@ -19,3 +19,12 @@ def orm_to_df(objects, model_class):
 
     df = pd.DataFrame(rows, columns=columns)
     return df
+
+def convert_date_to_month(date):
+    """
+    Convert a date to a month string in the format 'YYYY-MM-DD'.
+
+    Args:
+        date (datetime): The date to convert.
+    """
+    return date.strftime('%B')
