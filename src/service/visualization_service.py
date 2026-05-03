@@ -13,7 +13,8 @@ class VisualizationService:
         self.transaction_service = TransactionService()
 
     def get_transactions_merged_with_categories_df(self, account_id):
-        df = orm_to_df(self.transaction_service.get_merged_transactions_with_categories(), Transaction)
+        whole_df = orm_to_df(self.transaction_service.get_merged_transactions_with_categories(), Transaction)
+        df = whole_df[whole_df['account_id'] == account_id] # filter by account_id
         df['month'] = df['date'].apply(convert_date_to_month)
         return df
     
