@@ -2,7 +2,7 @@ Team Name: Spender Menders
 
 # Overview
 
-This project is a personal finance **expense tracker** delivered as a **desktop GUI** (Python + Tkinter). (We will be transistioning to PyQt5). The goal is to help users record, manage, and analyze financial transactions. We plan to turn expense data into clearer summaries for budgeting.
+This project is a personal finance **expense tracker** delivered as a **desktop GUI** with PyQt5. The goal is to help users record, manage, and analyze financial transactions. We plan to turn expense data into clearer summaries for budgeting.
 
 # Team Members
 
@@ -13,16 +13,20 @@ This project is a personal finance **expense tracker** delivered as a **desktop 
 
 # Dataset
 
-Mock csv files were generated for the account, category, and transaction tables.
+We created 3 mock datasets with CSV files:
+- accounts.csv
+- categories.csv
+- transactions.csv
 
 ---
 
 ## Tech stack
-
-- **Python 3**
-- **Tkinter, will switch to PyQt5**
-- **SQLite**
-
+Python
+PyQt5
+Pandas
+SQLalchemy
+Matplotlib
+Seaborn
 
 ## How to run
 
