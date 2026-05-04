@@ -13,7 +13,7 @@ This project is a personal finance **expense tracker** delivered as a **desktop 
 
 # Dataset
 
-(Link and description to be added.)
+Mock csv files were generated for the account, category, and transaction tables.
 
 ---
 
