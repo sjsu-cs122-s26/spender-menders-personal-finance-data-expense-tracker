@@ -85,6 +85,21 @@ QTEXTEDIT_STYLE: str = """
                       }
                       """
 
+QSCROLL_AREA: str = """
+                      QScrollArea {
+                        background-color: #171717;
+                        border: none;
+                      }
+
+                      QScrollArea > QWidget > QWidget {
+                        background-color: #171717;
+                      }
+
+                      QScrollArea QWidget {
+                        background-color: #171717;
+                      }
+                      """
+
 CREATE_BTTN: str = "New Account"
 DELETE_BTTN: str = "Delete Account"
 UPDATE_BTTN: str = "Update Account"

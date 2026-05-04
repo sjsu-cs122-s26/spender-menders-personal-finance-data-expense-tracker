@@ -2,17 +2,24 @@ from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtCore import Qt, QDate
 from PyQt5.QtWidgets import QApplication, QHBoxLayout, QVBoxLayout, QWidget, QLabel, QLineEdit, \
   QPushButton, QTextEdit, QToolTip, QListWidget, QFrame, QGridLayout, QLayout, QTableWidget, \
-  QTableWidgetItem, QHeaderView, QComboBox, QDateEdit
+  QTableWidgetItem, QHeaderView, QComboBox, QDateEdit, QScrollArea
 from PyQt5.QtGui import QFont, QIntValidator
 from src.gui.management import Manage
+from src.gui.graph import PlotWidget
 import src.gui.app_util as app_util
+import matplotlib
+matplotlib.use('Qt5Agg')
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas, NavigationToolbar2QT as NavigationToolbar
+from matplotlib.figure import Figure
+import matplotlib.dates as mdates
+import matplotlib.pyplot as plt
 
 class MainWindow(QtWidgets.QMainWindow):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
 
     self.setWindowTitle(app_util.GUI_TITLE)
-    self.setFixedWidth(1800)
+    # self.setFixedWidth(1800)
     self.validator = QIntValidator(0, 2147483647)
 
     #backend wiring
@@ -20,7 +27,7 @@ class MainWindow(QtWidgets.QMainWindow):
     # self.service.create_account(app_util.ACCOUNT_NAME, app_util.ACCOUNT_BAL)
     # print(self.service.get_account(1))
     self.acc_manage = Manage()
-    print(type(self.acc_manage.get_all_transactions(1)))
+    print(self.acc_manage.get_spending_overtime(app_util.ACCOUNT_ID))
     self.account = app_util.ACCOUNT_NAME
 
     summary_layout = QHBoxLayout()
@@ -42,14 +49,27 @@ class MainWindow(QtWidgets.QMainWindow):
     transaction_layout = QHBoxLayout()
     transaction_layout.addWidget(self._get_transactions())
 
+    graph_layout = QHBoxLayout()
+    self._init_graph()
+    graph_layout.addWidget(self.monthly_expense_line)
+    graph_layout.addWidget(self.income_expense_bar)
+    graph_layout.addWidget(self.expense_cat_bar)
+
     layout = QVBoxLayout()
     layout.addWidget(self._dashboard())
     layout.addLayout(manage_layout)
     layout.addLayout(transaction_layout)
+    layout.addLayout(graph_layout)
 
     container = QWidget()
     container.setLayout(layout)
-    self.setCentralWidget(container)
+
+    scroll = QScrollArea()
+    scroll.setWidgetResizable(True)
+    scroll.setMinimumSize(1800, 900)
+    scroll.setWidget(container)
+    scroll.setStyleSheet(app_util.QSCROLL_AREA)
+    self.setCentralWidget(scroll)
 
     self.setStyleSheet("""
                           QMainWindow {
@@ -59,7 +79,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
                           QLabel { color: #d1d1d1; }
                           """)
-    self.show()
+    self.showMaximized()
 
   def _dashboard(self) -> QFrame:
     layout = QHBoxLayout()
@@ -303,7 +323,7 @@ class MainWindow(QtWidgets.QMainWindow):
     self.desc = QTextEdit()
     self.desc.setFont(font)
     self.desc.setStyleSheet(app_util.QTEXTEDIT_STYLE)
-    self.desc.setFixedSize(500, 100)
+    self.desc.setFixedSize(500, 50)
 
     # Submit
     self.add_transact_bttn = QPushButton("Add")
@@ -377,6 +397,9 @@ class MainWindow(QtWidgets.QMainWindow):
     self.transactions_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
     self.transactions_widget.setStyleSheet(app_util.QTABLE_STYLE)
+
+    row_height = 30
+    self.transactions_widget.setFixedHeight(row_height * 5 + self.transactions_widget.horizontalHeader().height())
 
     return self.transactions_widget
   
@@ -486,6 +509,8 @@ class MainWindow(QtWidgets.QMainWindow):
     self.transactions_widget.setRowCount(t_row_len)
     self.transactions_widget.setColumnCount(app_util.T_COL)
     self.transactions_widget.setHorizontalHeaderLabels(app_util.T_COL_NAME)
+    row_height = 30
+    self.transactions_widget.setFixedHeight(row_height * 5 + self.transactions_widget.horizontalHeader().height())
 
     for i in range(t_row_len):
       self.transactions_widget.setItem(i, 0, QTableWidgetItem(str(self.transactions_df["transaction_id"].iloc[i])))
@@ -497,6 +522,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
     self.transactions_widget.horizontalHeader().setStretchLastSection(True)
     self.transactions_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+    self._update_graph(index)
 
   def _update_ui_after_add(self, index) -> None:
     self.transactions_df = self.acc_manage.get_all_transactions(index)
@@ -549,6 +576,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
     self.transactions_widget.horizontalHeader().setStretchLastSection(True)
     self.transactions_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+    row_height = 30
+    self.transactions_widget.setFixedHeight(row_height * 5 + self.transactions_widget.horizontalHeader().height())
+
+    # Graph
+    self._update_graph(index)
 
   def _create_acc(self):
     self.acc_manage.service.create_account(self.name.text(), int(self.bal_text.text()))
@@ -670,3 +702,36 @@ class MainWindow(QtWidgets.QMainWindow):
 
     self.name.clear()
     self.bal_text.clear()
+
+# ------------------------------------------------------------------------------------------------ #
+#                                               Graph                                              #
+# ------------------------------------------------------------------------------------------------ #
+  def _init_graph(self):
+    sorted = self.acc_manage.get_spending_overtime(app_util.ACCOUNT_ID)
+    self.cumulative = sorted['cumulative']
+    self.cumulative_date = sorted['date']
+    self.monthly_expense_line = PlotWidget("line")
+    self.monthly_expense_line.set_labels("Monthly Expenses", "Month", "Total Amount ($)")
+    self.monthly_expense_line.set_data(self.cumulative_date, self.cumulative)
+    self.monthly_expense_line.init_plot()
+
+    self.income_expense_bar = PlotWidget("bar")
+    self.income_expense_bar.set_labels("Expense vs Income", "Category", "Total Amount ($)")
+    self.income_expense_bar.set_data(['Expense', 'Income'], [self.acc_manage.get_expense_sum(app_util.ACCOUNT_ID), self.acc_manage.get_income_sum(app_util.ACCOUNT_ID)])
+    self.income_expense_bar.init_plot()
+    
+    cat_sorted = self.acc_manage.get_group_expenses(app_util.ACCOUNT_ID)
+    self.expense_cat_bar = PlotWidget("bar")
+    self.expense_cat_bar.set_labels("Total Spending by Category", "Category", "Total Amount ($)")
+    self.expense_cat_bar.set_data(cat_sorted.index, cat_sorted.values)
+    self.expense_cat_bar.init_plot()
+
+  def _update_graph(self, index):
+    cat_sorted = self.acc_manage.get_group_expenses(index)
+    sorted = self.acc_manage.get_spending_overtime(index)
+    self.cumulative = sorted['cumulative']
+    self.cumulative_date = sorted['date']
+
+    self.monthly_expense_line.update_plot(self.cumulative_date, self.cumulative)
+    self.income_expense_bar.update_plot(['Expense', 'Income'], [self.acc_manage.get_expense_sum(index), self.acc_manage.get_income_sum(index)])
+    self.expense_cat_bar.update_plot(cat_sorted.index, cat_sorted.values)

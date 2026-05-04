@@ -5,8 +5,9 @@ from src.data.models import Category, Account, Transaction
 from src.service.account_service import AccountService
 from src.service.category_service import CategoryService
 from src.service.transaction_service import TransactionService
+from src.service.visualization_service import VisualizationService
 from src.service.manage_service import ManageService
-
+import src.gui.app_util as app_util
 
 class Manage:
     def __init__(self):
@@ -14,6 +15,7 @@ class Manage:
         self.category = CategoryService()
         self.transaction = TransactionService()
         self.managing = ManageService()
+        self.visual = VisualizationService()
 
         self._to_df()
 
@@ -24,6 +26,7 @@ class Manage:
         self.trans_df = orm_to_df(self.transaction.get_all_transactions(), Transaction)
 
         self.merge_df = self.trans_df.merge(self.cat_df, on="cat_id")
+        self.visual.set_account(app_util.ACCOUNT_ID)
 
     def get_total_expense(self):
         return self.merge_df[self.merge_df["type"] == "expense"]
@@ -51,3 +54,15 @@ class Manage:
         self.merge_df["date"] = pd.to_datetime(self.merge_df["date"])
         self.merge_df = self.merge_df.sort_values(by="date", ascending=False)
         return self.merge_df[self.merge_df["account_id"] == id]
+    
+    def get_spending_overtime(self, id):
+        sorted = self.get_expense_by_type(id)
+        sorted = sorted.sort_values('date')
+        sorted['cumulative'] = sorted['amount'].cumsum()
+        return sorted
+    
+    def get_group_expenses(self, id):
+        expense = self.get_expense_by_type(id)
+        group_exp = expense.groupby('name')['amount'].sum().sort_values(ascending=False)
+        print(group_exp)
+        return group_exp
