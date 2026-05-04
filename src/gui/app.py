@@ -593,6 +593,8 @@ class MainWindow(QtWidgets.QMainWindow):
     self.del_widget.addItem(self.account_list[self.current_id - 1].name)
     self.acc_combo.addItem(self.account_list[self.current_id - 1].name)
 
+    self._update_ui_after_add(self.current_id)
+
   def _update_form_ui(self):
     button = self.sender()
     self._hide_form_ui()
@@ -686,8 +688,12 @@ class MainWindow(QtWidgets.QMainWindow):
     del item
     item = self.list_widget.takeItem(index)
     del item
+    self.acc_combo.removeItem(index)
     del self.account_list[index]
     print(self.account_list)
+
+    if self.list_widget.currentItem():
+      self._update_ui(self.list_widget.currentItem())
 
   def _update_acc(self) -> None:
     name = self.name.text()
@@ -700,8 +706,12 @@ class MainWindow(QtWidgets.QMainWindow):
     item = self.del_widget.item(index)
     item.setText(name)
 
+    self.acc_combo.setItemText(index, name)
+
     self.name.clear()
     self.bal_text.clear()
+
+    self._update_ui(self.list_widget.item(index))
 
 # ------------------------------------------------------------------------------------------------ #
 #                                               Graph                                              #
