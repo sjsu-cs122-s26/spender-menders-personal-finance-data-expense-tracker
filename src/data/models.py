@@ -12,7 +12,7 @@ class Account(Base):
     name = Column(String, nullable=False)
     balance = Column(Float, default=0.0)
 
-    transactions = relationship("Transaction", back_populates="account")
+    transactions = relationship("Transaction", back_populates="account", cascade="all, delete-orphan")
 
     def __repr__(self):
         return "<Account(name='%s', balance=%s)>" % (self.name, self.balance)
