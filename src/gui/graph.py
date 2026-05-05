@@ -2,6 +2,7 @@ import matplotlib
 matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
+import matplotlib.cm as cm
 
 class PlotWidget(FigureCanvas):
   def __init__(self, plot_type='line', parent=None):
@@ -44,25 +45,6 @@ class PlotWidget(FigureCanvas):
 
   def init_plot(self):
     self._draw()
-    # self.axes.clear()
-    # self._restore_labels()
-    # self._set_style()
-
-    # if self.plot_type == "line":
-    #   (self.line,) = self.axes.plot(self.x, self.y)
-
-    # elif self.plot_type == "bar":
-    #   self.bar_container = self.axes.bar(self.x, self.y)
-
-    # elif self.plot_type == "pie":
-    #   self.axes.pie(self.y, 
-    #                 labels=self.labels, 
-    #                 autopct="%1.1f%%", 
-    #                 startangle=90, 
-    #                 wedgeprops={"edgecolor": "white"})
-    #   self.axes.axis("equal")
-
-    # self.draw_idle()
 
   def update_plot(self, x, y):
     if x is not None and y is not None:
@@ -70,20 +52,6 @@ class PlotWidget(FigureCanvas):
       self.y = y
 
     self._draw()
-
-    # if self.plot_type == "line":
-    #   self.line.set_data(self.x, self.y)
-
-    #   self.axes.relim()
-    #   self.axes.autoscale_view()
-
-    # elif self.plot_type == "bar":
-    #   self.axes.clear()
-    #   self.ax.bar(self.x, self.y)
-
-    #   self._restore_labels()
-
-    # self.draw_idle()
 
   def _draw(self):
     self.axes.clear()
@@ -94,7 +62,9 @@ class PlotWidget(FigureCanvas):
       self._restore_labels()
 
     elif self.plot_type == "bar":
-      self.axes.bar(self.x, self.y)
+      colors = cm.tab10(range(len(self.y)))
+
+      self.axes.bar(self.x, self.y, color=colors)
       self._restore_labels()
 
     elif self.plot_type == "pie":

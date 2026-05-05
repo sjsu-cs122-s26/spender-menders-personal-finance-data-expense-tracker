@@ -23,11 +23,7 @@ class MainWindow(QtWidgets.QMainWindow):
     self.validator = QIntValidator(0, 2147483647)
 
     #backend wiring
-    # self.service = AccountService()
-    # self.service.create_account(app_util.ACCOUNT_NAME, app_util.ACCOUNT_BAL)
-    # print(self.service.get_account(1))
     self.acc_manage = Manage()
-    print(self.acc_manage.get_spending_overtime(app_util.ACCOUNT_ID))
     self.account = app_util.ACCOUNT_NAME
 
     summary_layout = QHBoxLayout()
@@ -527,7 +523,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
   def _update_ui_after_add(self, index) -> None:
     self.transactions_df = self.acc_manage.get_all_transactions(index)
-    print(self.transactions_df)
+    # print(self.transactions_df)
     
     # Total balance
     self.bal = self.acc_manage.get_balance_by_id(index)
@@ -690,7 +686,7 @@ class MainWindow(QtWidgets.QMainWindow):
     del item
     self.acc_combo.removeItem(index)
     del self.account_list[index]
-    print(self.account_list)
+    # print(self.account_list)
 
     if self.list_widget.currentItem():
       self._update_ui(self.list_widget.currentItem())

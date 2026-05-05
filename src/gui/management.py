@@ -64,5 +64,5 @@ class Manage:
     def get_group_expenses(self, id):
         expense = self.get_expense_by_type(id)
         group_exp = expense.groupby('name')['amount'].sum().sort_values(ascending=False)
-        print(group_exp)
+        # print(group_exp)
         return group_exp
