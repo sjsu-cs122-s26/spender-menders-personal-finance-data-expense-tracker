@@ -13,15 +13,3 @@ if __name__ == "__main__":
   window = MainWindow()
   window.show()
   sys.exit(app.exec_())
-
-# import tkinter as tk
-# from src.gui.tk_app import ExpenseTrackerApp
-
-# def main():
-#     root = tk.Tk()
-#     app = ExpenseTrackerApp(root)
-#     root.mainloop()
-
-# if __name__ == "__main__":
-#     main()
-

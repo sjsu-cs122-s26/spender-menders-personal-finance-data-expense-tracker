@@ -1,0 +1,328 @@
+transaction_id,account_id,cat_id,amount,date,description
+1,1,1,1500,2025-01-01,Monthly rent
+2,1,3,130,2025-01-03,Electric & water
+3,1,9,43,2025-01-05,Streaming & apps
+4,1,2,84.0,2025-01-24,Grocery run
+5,1,2,62.33,2025-01-08,Grocery run
+6,1,4,47.03,2025-01-22,Uber/transport
+7,1,4,14.35,2025-01-18,Uber/transport
+8,1,5,21.79,2025-01-02,Restaurant
+9,1,5,33.96,2025-01-07,Restaurant
+10,1,5,21.59,2025-01-20,Restaurant
+11,1,5,62.96,2025-01-07,Restaurant
+12,1,5,52.7,2025-01-23,Restaurant
+13,1,6,65.09,2025-01-15,Entertainment
+14,1,6,88.89,2025-01-26,Entertainment
+15,1,6,83.49,2025-01-25,Entertainment
+16,2,7,63.34,2025-01-11,Pharmacy/doctor
+17,2,7,144.87,2025-01-07,Pharmacy/doctor
+18,2,7,42.27,2025-01-11,Pharmacy/doctor
+19,2,7,41.61,2025-01-13,Pharmacy/doctor
+20,2,7,71.27,2025-01-28,Pharmacy/doctor
+21,2,8,32.6,2025-01-26,Shopping
+22,2,8,118.84,2025-01-15,Shopping
+23,2,8,38.79,2025-01-13,Shopping
+24,2,8,170.15,2025-01-10,Shopping
+25,1,10,4500,2025-01-15,Monthly salary
+26,1,10,4500,2025-01-28,Monthly salary
+27,1,1,1500,2025-02-01,Monthly rent
+28,1,3,126,2025-02-03,Electric & water
+29,1,9,46,2025-02-05,Streaming & apps
+30,1,2,145.8,2025-02-02,Grocery run
+31,1,2,86.3,2025-02-25,Grocery run
+32,1,4,21.64,2025-02-28,Uber/transport
+33,1,4,29.01,2025-02-04,Uber/transport
+34,1,5,70.05,2025-02-21,Restaurant
+35,1,5,42.21,2025-02-06,Restaurant
+36,1,5,60.21,2025-02-07,Restaurant
+37,1,5,76.2,2025-02-23,Restaurant
+38,1,5,24.28,2025-02-21,Restaurant
+39,1,6,76.98,2025-02-18,Entertainment
+40,1,6,54.29,2025-02-06,Entertainment
+41,1,6,99.11,2025-02-09,Entertainment
+42,2,7,68.91,2025-02-22,Pharmacy/doctor
+43,2,7,123.12,2025-02-25,Pharmacy/doctor
+44,2,7,128.62,2025-02-08,Pharmacy/doctor
+45,2,8,71.85,2025-02-13,Shopping
+46,2,8,184.8,2025-02-07,Shopping
+47,2,8,178.36,2025-02-19,Shopping
+48,2,8,62.21,2025-02-11,Shopping
+49,1,10,4500,2025-02-15,Monthly salary
+50,1,10,4500,2025-02-28,Monthly salary
+51,1,11,1084.68,2025-02-21,Freelance work
+52,2,12,464.88,2025-02-08,Dividend
+53,1,1,1500,2025-03-01,Monthly rent
+54,1,3,137,2025-03-03,Electric & water
+55,1,9,57,2025-03-05,Streaming & apps
+56,1,2,133.53,2025-03-24,Grocery run
+57,1,2,103.9,2025-03-19,Grocery run
+58,1,2,199.57,2025-03-08,Grocery run
+59,1,2,121.52,2025-03-05,Grocery run
+60,1,4,12.36,2025-03-25,Uber/transport
+61,1,4,17.64,2025-03-04,Uber/transport
+62,1,5,60.83,2025-03-26,Restaurant
+63,1,5,23.81,2025-03-20,Restaurant
+64,1,5,55.75,2025-03-13,Restaurant
+65,1,6,36.37,2025-03-17,Entertainment
+66,1,6,88.17,2025-03-18,Entertainment
+67,1,6,72.82,2025-03-01,Entertainment
+68,1,6,72.95,2025-03-04,Entertainment
+69,1,6,78.82,2025-03-18,Entertainment
+70,2,7,65.22,2025-03-04,Pharmacy/doctor
+71,2,7,84.45,2025-03-06,Pharmacy/doctor
+72,2,7,135.1,2025-03-24,Pharmacy/doctor
+73,2,7,146.63,2025-03-09,Pharmacy/doctor
+74,2,8,184.71,2025-03-17,Shopping
+75,2,8,134.43,2025-03-28,Shopping
+76,2,8,136.82,2025-03-27,Shopping
+77,1,10,4500,2025-03-15,Monthly salary
+78,1,10,4500,2025-03-28,Monthly salary
+79,2,12,962.51,2025-03-18,Dividend
+80,1,1,1500,2025-04-01,Monthly rent
+81,1,3,139,2025-04-03,Electric & water
+82,1,9,56,2025-04-05,Streaming & apps
+83,1,2,91.86,2025-04-20,Grocery run
+84,1,2,57.9,2025-04-01,Grocery run
+85,1,4,50.34,2025-04-27,Uber/transport
+86,1,4,12.9,2025-04-08,Uber/transport
+87,1,4,57.35,2025-04-19,Uber/transport
+88,1,4,46.6,2025-04-03,Uber/transport
+89,1,5,51.96,2025-04-25,Restaurant
+90,1,5,27.7,2025-04-05,Restaurant
+91,1,6,29.04,2025-04-18,Entertainment
+92,1,6,89.16,2025-04-17,Entertainment
+93,1,6,96.97,2025-04-14,Entertainment
+94,1,6,79.2,2025-04-18,Entertainment
+95,1,6,32.1,2025-04-23,Entertainment
+96,2,7,149.42,2025-04-13,Pharmacy/doctor
+97,2,7,74.81,2025-04-21,Pharmacy/doctor
+98,2,7,84.18,2025-04-17,Pharmacy/doctor
+99,2,7,56.96,2025-04-08,Pharmacy/doctor
+100,2,8,127.95,2025-04-01,Shopping
+101,2,8,127.98,2025-04-08,Shopping
+102,2,8,37.42,2025-04-01,Shopping
+103,2,8,35.3,2025-04-21,Shopping
+104,1,10,4500,2025-04-15,Monthly salary
+105,1,10,4500,2025-04-28,Monthly salary
+106,1,11,231.41,2025-04-11,Freelance work
+107,2,12,438.0,2025-04-22,Dividend
+108,1,1,1500,2025-05-01,Monthly rent
+109,1,3,121,2025-05-03,Electric & water
+110,1,9,46,2025-05-05,Streaming & apps
+111,1,2,189.68,2025-05-24,Grocery run
+112,1,2,132.19,2025-05-19,Grocery run
+113,1,2,165.54,2025-05-08,Grocery run
+114,1,4,14.72,2025-05-07,Uber/transport
+115,1,4,31.55,2025-05-22,Uber/transport
+116,1,4,30.56,2025-05-14,Uber/transport
+117,1,4,46.45,2025-05-28,Uber/transport
+118,1,4,42.67,2025-05-22,Uber/transport
+119,1,5,44.16,2025-05-02,Restaurant
+120,1,5,68.04,2025-05-11,Restaurant
+121,1,6,31.29,2025-05-08,Entertainment
+122,1,6,53.13,2025-05-18,Entertainment
+123,2,7,63.43,2025-05-06,Pharmacy/doctor
+124,2,7,134.94,2025-05-08,Pharmacy/doctor
+125,2,7,83.18,2025-05-03,Pharmacy/doctor
+126,2,7,132.72,2025-05-28,Pharmacy/doctor
+127,2,7,36.07,2025-05-04,Pharmacy/doctor
+128,2,8,187.11,2025-05-03,Shopping
+129,2,8,66.37,2025-05-28,Shopping
+130,1,10,4500,2025-05-15,Monthly salary
+131,1,10,4500,2025-05-28,Monthly salary
+132,1,11,681.36,2025-05-28,Freelance work
+133,2,12,258.64,2025-05-13,Dividend
+134,1,1,1500,2025-06-01,Monthly rent
+135,1,3,90,2025-06-03,Electric & water
+136,1,9,52,2025-06-05,Streaming & apps
+137,1,2,165.62,2025-06-26,Grocery run
+138,1,2,107.68,2025-06-10,Grocery run
+139,1,2,199.27,2025-06-24,Grocery run
+140,1,2,145.9,2025-06-18,Grocery run
+141,1,4,19.49,2025-06-05,Uber/transport
+142,1,4,58.44,2025-06-07,Uber/transport
+143,1,4,46.79,2025-06-19,Uber/transport
+144,1,4,47.4,2025-06-02,Uber/transport
+145,1,4,12.51,2025-06-02,Uber/transport
+146,1,5,75.16,2025-06-17,Restaurant
+147,1,5,29.45,2025-06-17,Restaurant
+148,1,5,24.81,2025-06-17,Restaurant
+149,1,5,24.11,2025-06-06,Restaurant
+150,1,5,60.51,2025-06-03,Restaurant
+151,1,6,25.19,2025-06-13,Entertainment
+152,1,6,35.93,2025-06-19,Entertainment
+153,1,6,18.38,2025-06-20,Entertainment
+154,2,7,108.88,2025-06-14,Pharmacy/doctor
+155,2,7,92.73,2025-06-19,Pharmacy/doctor
+156,2,8,142.2,2025-06-07,Shopping
+157,2,8,66.77,2025-06-11,Shopping
+158,2,8,47.9,2025-06-13,Shopping
+159,2,8,77.5,2025-06-21,Shopping
+160,1,10,4500,2025-06-15,Monthly salary
+161,1,10,4500,2025-06-28,Monthly salary
+162,1,11,951.86,2025-06-03,Freelance work
+163,2,12,821.16,2025-06-19,Dividend
+164,1,1,1500,2025-07-01,Monthly rent
+165,1,3,96,2025-07-03,Electric & water
+166,1,9,42,2025-07-05,Streaming & apps
+167,1,2,82.43,2025-07-17,Grocery run
+168,1,2,180.94,2025-07-12,Grocery run
+169,1,2,99.12,2025-07-08,Grocery run
+170,1,4,51.69,2025-07-15,Uber/transport
+171,1,4,25.13,2025-07-23,Uber/transport
+172,1,4,42.7,2025-07-26,Uber/transport
+173,1,5,69.03,2025-07-22,Restaurant
+174,1,5,75.91,2025-07-10,Restaurant
+175,1,6,37.48,2025-07-05,Entertainment
+176,1,6,78.11,2025-07-04,Entertainment
+177,2,7,63.81,2025-07-09,Pharmacy/doctor
+178,2,7,116.11,2025-07-07,Pharmacy/doctor
+179,2,7,112.5,2025-07-07,Pharmacy/doctor
+180,2,8,110.49,2025-07-17,Shopping
+181,2,8,33.89,2025-07-28,Shopping
+182,2,8,99.13,2025-07-21,Shopping
+183,2,8,32.72,2025-07-09,Shopping
+184,1,10,4500,2025-07-15,Monthly salary
+185,1,10,4500,2025-07-28,Monthly salary
+186,1,11,330.82,2025-07-09,Freelance work
+187,2,12,641.84,2025-07-23,Dividend
+188,1,1,1500,2025-08-01,Monthly rent
+189,1,3,117,2025-08-03,Electric & water
+190,1,9,57,2025-08-05,Streaming & apps
+191,1,2,52.04,2025-08-04,Grocery run
+192,1,2,184.63,2025-08-23,Grocery run
+193,1,4,28.46,2025-08-27,Uber/transport
+194,1,4,17.4,2025-08-18,Uber/transport
+195,1,5,38.5,2025-08-02,Restaurant
+196,1,5,78.33,2025-08-26,Restaurant
+197,1,5,73.94,2025-08-02,Restaurant
+198,1,6,36.21,2025-08-22,Entertainment
+199,1,6,45.06,2025-08-04,Entertainment
+200,1,6,90.15,2025-08-18,Entertainment
+201,2,7,119.94,2025-08-20,Pharmacy/doctor
+202,2,7,133.75,2025-08-08,Pharmacy/doctor
+203,2,7,127.29,2025-08-26,Pharmacy/doctor
+204,2,7,32.97,2025-08-14,Pharmacy/doctor
+205,2,7,140.94,2025-08-24,Pharmacy/doctor
+206,2,8,142.23,2025-08-26,Shopping
+207,2,8,166.88,2025-08-24,Shopping
+208,2,8,52.86,2025-08-09,Shopping
+209,2,8,43.92,2025-08-23,Shopping
+210,2,8,31.78,2025-08-28,Shopping
+211,1,10,4500,2025-08-15,Monthly salary
+212,1,10,4500,2025-08-28,Monthly salary
+213,1,11,399.57,2025-08-15,Freelance work
+214,2,12,1020.54,2025-08-28,Dividend
+215,1,1,1500,2025-09-01,Monthly rent
+216,1,3,104,2025-09-03,Electric & water
+217,1,9,47,2025-09-05,Streaming & apps
+218,1,2,70.9,2025-09-22,Grocery run
+219,1,2,84.58,2025-09-11,Grocery run
+220,1,4,23.96,2025-09-25,Uber/transport
+221,1,4,35.47,2025-09-21,Uber/transport
+222,1,5,26.92,2025-09-01,Restaurant
+223,1,5,30.71,2025-09-09,Restaurant
+224,1,5,22.3,2025-09-09,Restaurant
+225,1,5,46.07,2025-09-20,Restaurant
+226,1,6,66.53,2025-09-14,Entertainment
+227,1,6,24.83,2025-09-17,Entertainment
+228,1,6,31.16,2025-09-19,Entertainment
+229,1,6,75.25,2025-09-02,Entertainment
+230,2,7,141.07,2025-09-17,Pharmacy/doctor
+231,2,7,112.42,2025-09-18,Pharmacy/doctor
+232,2,8,100.48,2025-09-12,Shopping
+233,2,8,186.13,2025-09-22,Shopping
+234,2,8,79.94,2025-09-20,Shopping
+235,1,10,4500,2025-09-15,Monthly salary
+236,1,10,4500,2025-09-28,Monthly salary
+237,1,1,1500,2025-10-01,Monthly rent
+238,1,3,109,2025-10-03,Electric & water
+239,1,9,56,2025-10-05,Streaming & apps
+240,1,2,105.34,2025-10-22,Grocery run
+241,1,2,151.55,2025-10-13,Grocery run
+242,1,2,60.37,2025-10-18,Grocery run
+243,1,2,146.39,2025-10-14,Grocery run
+244,1,4,47.41,2025-10-22,Uber/transport
+245,1,4,40.78,2025-10-06,Uber/transport
+246,1,4,30.3,2025-10-10,Uber/transport
+247,1,4,10.02,2025-10-27,Uber/transport
+248,1,4,20.51,2025-10-10,Uber/transport
+249,1,5,46.51,2025-10-15,Restaurant
+250,1,5,32.82,2025-10-22,Restaurant
+251,1,5,67.62,2025-10-16,Restaurant
+252,1,5,64.16,2025-10-26,Restaurant
+253,1,6,58.81,2025-10-10,Entertainment
+254,1,6,67.64,2025-10-21,Entertainment
+255,2,7,144.24,2025-10-27,Pharmacy/doctor
+256,2,7,110.74,2025-10-08,Pharmacy/doctor
+257,2,8,59.85,2025-10-26,Shopping
+258,2,8,33.09,2025-10-01,Shopping
+259,2,8,131.97,2025-10-16,Shopping
+260,1,10,4500,2025-10-15,Monthly salary
+261,1,10,4500,2025-10-28,Monthly salary
+262,2,12,1086.14,2025-10-19,Dividend
+263,1,1,1500,2025-11-01,Monthly rent
+264,1,3,102,2025-11-03,Electric & water
+265,1,9,52,2025-11-05,Streaming & apps
+266,1,2,79.04,2025-11-13,Grocery run
+267,1,2,150.02,2025-11-21,Grocery run
+268,1,2,177.67,2025-11-25,Grocery run
+269,1,2,164.55,2025-11-04,Grocery run
+270,1,2,68.14,2025-11-08,Grocery run
+271,1,4,37.87,2025-11-02,Uber/transport
+272,1,4,16.07,2025-11-28,Uber/transport
+273,1,4,50.07,2025-11-05,Uber/transport
+274,1,4,36.56,2025-11-22,Uber/transport
+275,1,4,39.77,2025-11-18,Uber/transport
+276,1,5,68.9,2025-11-20,Restaurant
+277,1,5,45.6,2025-11-17,Restaurant
+278,1,5,46.75,2025-11-18,Restaurant
+279,1,5,64.62,2025-11-06,Restaurant
+280,1,5,47.0,2025-11-16,Restaurant
+281,1,6,69.2,2025-11-27,Entertainment
+282,1,6,81.1,2025-11-25,Entertainment
+283,1,6,68.27,2025-11-16,Entertainment
+284,2,7,39.3,2025-11-15,Pharmacy/doctor
+285,2,7,58.14,2025-11-10,Pharmacy/doctor
+286,2,7,68.37,2025-11-11,Pharmacy/doctor
+287,2,7,39.67,2025-11-18,Pharmacy/doctor
+288,2,8,92.03,2025-11-08,Shopping
+289,2,8,148.62,2025-11-05,Shopping
+290,2,8,97.6,2025-11-03,Shopping
+291,1,10,4500,2025-11-15,Monthly salary
+292,1,10,4500,2025-11-28,Monthly salary
+293,1,11,665.92,2025-11-02,Freelance work
+294,2,12,620.14,2025-11-25,Dividend
+295,1,1,1500,2025-12-01,Monthly rent
+296,1,3,127,2025-12-03,Electric & water
+297,1,9,40,2025-12-05,Streaming & apps
+298,1,2,40.94,2025-12-16,Grocery run
+299,1,2,87.78,2025-12-12,Grocery run
+300,1,2,176.55,2025-12-13,Grocery run
+301,1,2,107.04,2025-12-27,Grocery run
+302,1,2,157.54,2025-12-24,Grocery run
+303,1,4,20.97,2025-12-16,Uber/transport
+304,1,4,34.28,2025-12-14,Uber/transport
+305,1,4,26.81,2025-12-13,Uber/transport
+306,1,5,29.9,2025-12-24,Restaurant
+307,1,5,75.17,2025-12-15,Restaurant
+308,1,5,52.05,2025-12-20,Restaurant
+309,1,5,55.51,2025-12-13,Restaurant
+310,1,5,21.63,2025-12-22,Restaurant
+311,1,6,88.68,2025-12-05,Entertainment
+312,1,6,19.27,2025-12-06,Entertainment
+313,1,6,42.82,2025-12-13,Entertainment
+314,1,6,42.78,2025-12-15,Entertainment
+315,1,6,89.77,2025-12-25,Entertainment
+316,2,7,144.14,2025-12-25,Pharmacy/doctor
+317,2,7,60.27,2025-12-14,Pharmacy/doctor
+318,2,7,86.44,2025-12-03,Pharmacy/doctor
+319,2,7,94.73,2025-12-24,Pharmacy/doctor
+320,2,8,138.78,2025-12-08,Shopping
+321,2,8,192.52,2025-12-25,Shopping
+322,2,8,156.99,2025-12-02,Shopping
+323,2,8,59.89,2025-12-08,Shopping
+324,1,10,4500,2025-12-15,Monthly salary
+325,1,10,4500,2025-12-28,Monthly salary
+326,1,11,352.38,2025-12-05,Freelance work
+327,2,12,314.39,2025-12-07,Dividend

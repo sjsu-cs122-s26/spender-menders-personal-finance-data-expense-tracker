@@ -1,0 +1,13 @@
+cat_id,name,type
+1,Rent,expense
+2,Groceries,expense
+3,Utilities,expense
+4,Transport,expense
+5,Dining Out,expense
+6,Entertainment,expense
+7,Healthcare,expense
+8,Shopping,expense
+9,Subscriptions,expense
+10,Salary,income
+11,Freelance,income
+12,Investment,income
