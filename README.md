@@ -22,10 +22,15 @@ We created 3 mock datasets with CSV files:
 
 ## Tech stack
 Python
+
 PyQt5
+
 Pandas
+
 SQLalchemy
+
 Matplotlib
+
 Seaborn
 
 ## How to run
