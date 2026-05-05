@@ -58,4 +58,4 @@ python3 src/main.py
 - **Add transaction** — Add a transaction with one of the default categories, and category type (income/expense)
 - **Visualize transactions** — Three charts are currently visible: Line plot(Total cumulative spending), Bar plot(Income vs. Spending), Categorical Plot(Total Spending by Category)
 
-The service layer still uses **stub data** for `get_account` (e.g. sample Savings / Checking accounts). The GUI is wired to `AccountService` and `AccountRepo`; full database-backed account loading will come as the data/service layers are completed.
+
