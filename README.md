@@ -30,9 +30,8 @@ We created 3 mock datasets with CSV files:
 
 ## Dependencies
 Before running install:
-- PyQt5.15
 - python 3.11
-
+- pip3 install -r requirements.txt **OR** pip3 install pyqt5.15, pandas, sqlalchemy, matplotlib, seaborn
 
 ## How to run
 
