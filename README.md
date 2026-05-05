@@ -21,17 +21,18 @@ We created 3 mock datasets with CSV files:
 ---
 
 ## Tech stack
-Python
+- Python
+- PyQt5
+- Pandas
+- SQLalchemy
+- Matplotlib
+- Seaborn
 
-PyQt5
+## Dependencies
+Before running install:
+- PyQt5.15
+- python 3.11
 
-Pandas
-
-SQLalchemy
-
-Matplotlib
-
-Seaborn
 
 ## How to run
 
@@ -46,6 +47,11 @@ Alternatively:
 ```bash
 python3 src/main.py
 ```
+
+## Releases
+
+- New version v1.1 has been released 
+- Download the SpenderMenders.exe and run
 
 ## What the GUI does today
 
